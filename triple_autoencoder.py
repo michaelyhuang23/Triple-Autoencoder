@@ -8,6 +8,7 @@ class TripleAutoencoder(nn.Module):
         super(TripleAutoencoder, self).__init__()
         self.encoder = Encoder()
         self.decoder = Decoder()
+        self.recognizer = Encoder()
         self.classifier = nn.Sequential(
             nn.Linear(128,512),
             nn.ReLU(),
@@ -19,6 +20,6 @@ class TripleAutoencoder(nn.Module):
     def forward(self, x):
         x = self.encoder(x)
         x = self.decoder(x)
-        x = self.encoder(x)
+        x = self.recognizer(x)
         x = self.classifier(x)
         return x
