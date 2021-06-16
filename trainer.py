@@ -66,7 +66,7 @@ def eval(dataloader, model, loss_fn):
     print(f"final eval acc is {correct/size}")
 
 loss_fn = CrossEntropyLoss()
-optimizer = torch.optim.Adam(params=model.parameters(),lr=0.00003)
+optimizer = torch.optim.Adam(params=model.parameters(),lr=0.001)
 
 
 EPOCH = 5
